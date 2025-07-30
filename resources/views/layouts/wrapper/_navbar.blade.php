@@ -23,6 +23,14 @@
                                     <i class="bi bi-person"></i> Profile
                                 </a>
                             </li>
+                            @if (Auth::user()->isAdministrator())
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center gap-2"
+                                        href="{{ route('admin.main.index') }}">
+                                        <i class="bi bi-person-check"></i> Admin
+                                    </a>
+                                </li>
+                            @endif
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
