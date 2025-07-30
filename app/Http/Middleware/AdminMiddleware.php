@@ -16,7 +16,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         /** @phpstan-ignore-next-line */
-        if (auth()->user()->isReader()) {
+        if (! auth()->user()->isAdministrator()) {
             abort(404);
         }
 

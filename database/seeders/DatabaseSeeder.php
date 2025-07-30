@@ -14,15 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Post::factory(13)->create();
-
         User::factory(13)->create();
 
-        User::factory()->create([
-            'email'    => 'test@example.com',
-            'name'     => 'Admin',
-            'role'     => 'administrator',
-            'password' => bcrypt('password'),
-        ]);
+        $this->call(AdminUserSeeder::class);
 
         // TODO Seed more items
     }
